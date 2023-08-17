@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
+from __future__ import annotations
 
 import datetime
 import time
@@ -35,7 +36,7 @@ from .utils import parse_timestamp
 if TYPE_CHECKING:
     from .http import TwitchHTTP
     from .channel import Channel
-    from .models import BitsLeaderboard, Clip, ExtensionBuilder, Tag, FollowEvent, Prediction
+    from .models import BitsLeaderboard, Clip, ExtensionBuilder, Tag, FollowEvent, Prediction, CharityCampaign
 __all__ = (
     "PartialUser",
     "BitLeaderboardUser",
@@ -1633,7 +1634,8 @@ class PartialUser:
         Fetches broadcaster's list of custom chat badges.
         The list is empty if the broadcaster hasn't created custom chat badges.
 
-        Returns:
+        Returns
+        --------
         List[:class:`twitchio.ChatBadge`]
         """
 
@@ -1641,6 +1643,21 @@ class PartialUser:
 
         data = await self._http.get_channel_chat_badges(broadcaster_id=str(self.id))
         return [ChatBadge(x) for x in data]
+
+    async def fetch_charity_campaigns(self, token: str) -> List[CharityCampaign]:
+        """|coro|
+
+        Fetches a list of charity campaigns the broadcaster is running.
+        Requires a user token with the ``channel:read:charity`` scope.
+
+        Returns
+        --------
+        List[:class:`twitchio.CharityCampaign`]
+        """
+        from .models import CharityCampaign
+
+        data = await self._http.get_channel_charity_campaigns(str(self.id), token)
+        return [CharityCampaign(d, self._http, self) for d in data]
 
 
 class BitLeaderboardUser(PartialUser):

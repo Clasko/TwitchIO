@@ -1,9 +1,10 @@
 :orphan:
 
-Master
+2.7.0
 ======
 - TwitchIO
     - Additions
+        - Added :func:`~twitchio.PartialUser.fetch_charity_campaigns` with :class:`~twitchio.CharityCampaign` and :class:`~twitchio.CharityValues`.
         - Added :func:`~twitchio.Client.fetch_global_chat_badges`
         - Added User method :func:`~twitchio.PartialUser.fetch_chat_badges`
         - Added repr for :class:`~twitchio.SearchUser`
@@ -23,9 +24,13 @@ Master
         - :func:`~twitchio.Client.event_token_expired` will now be called correctly when response is ``401 Invalid OAuth token``
         - Fix reconnect loop when Twitch sends a RECONNECT via IRC websocket
         - Fix :func:`~twitchio.CustomReward.edit` so it now can enable the reward
+    
+    - Other Changes
+        - Updated the HTTPException to provide useful information when an error is raised.
 
 - ext.eventsub
-    - Added websocket support via eventsub.EventSubWSClient
+    - Added websocket support via :class:`~twitchio.ext.eventsub.EventSubWSClient`.
+    - Added support for charity donation events.
 
 - Other
     - [speed] extra
