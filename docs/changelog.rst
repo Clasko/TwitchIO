@@ -1,6 +1,12 @@
 :orphan:
 
-Master
+2.8.1
+======
+- ext.commands
+    - Bug fixes
+        - Fixed an issue where ``CommandNotFound`` couldn't be processed from ``get_context``.
+
+2.8.0
 ======
 - TwitchIO
     - Additions
@@ -24,6 +30,15 @@ Master
         - Fix websocket reconnection event.
         - Fix another websocket reconnect issue where it tried to decode nonexistent headers.
 
+- ext.commands
+    - Additions
+        - Added support for the following typing constructs in command signatures:
+            - ``Union[A, B]`` / ``A | B``
+            - ``Optional[T]`` / ``T | None``
+            - ``Annotated[T, converter]`` (accessible through the ``typing_extensions`` module on older python versions)
+
+- Docs
+    - Added walkthrough for ext.commands
 
 2.7.0
 ======
