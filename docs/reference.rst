@@ -74,6 +74,22 @@ ChannelEmote
     :members:
     :inherited-members:
 
+ChannelFollowerEvent
+---------------------
+.. attributetable:: ChannelFollowerEvent
+
+.. autoclass:: ChannelFollowerEvent
+    :members:
+    :inherited-members:
+
+ChannelFollowingEvent
+---------------------
+.. attributetable:: ChannelFollowingEvent
+
+.. autoclass:: ChannelFollowingEvent
+    :members:
+    :inherited-members:
+
 ChannelInfo
 ------------
 .. attributetable:: ChannelInfo
@@ -135,6 +151,20 @@ ChatterColor
     :members:
     :inherited-members:
 
+CharityCampaign
+----------------
+.. attributetable:: CharityCampaign
+
+.. autoclass:: CharityCampaign
+    :members:
+    :inherited-members:
+
+.. attributetable:: CharityValues
+
+.. autoclass:: CharityValues
+    :members:
+    :inherited-members:
+
 CheerEmote
 ------------
 .. attributetable:: CheerEmote
@@ -156,6 +186,14 @@ Clip
 .. attributetable:: Clip
 
 .. autoclass:: Clip
+    :members:
+    :inherited-members:
+
+ContentClassificationLabel
+---------------------------
+.. attributetable:: ContentClassificationLabel
+
+.. autoclass:: ContentClassificationLabel
     :members:
     :inherited-members:
 
@@ -222,6 +260,13 @@ Goal
 .. autoclass:: Goal
     :members:
     :inherited-members:
+
+HypeChatData
+
+.. attributetable:: HypeChatData
+
+.. autoclass:: HypeChatData
+    :members:
 
 HypeTrainContribution
 -----------------------
